@@ -11,7 +11,15 @@
         <td><%= project.name %></td>
         <td><%= project.description %></td>
         <td><%= pluralize(project.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_project_path(project), method: :post %></td>
+        <td>
+          <% if current_user %>
+            <% if !current_user.has_voted_of?(project) %>
+              <%= button_to '+1', upvote_project_path(project), method: :post %>
+            <% else %>
+              感谢支持
+            <% end %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
