@@ -1,0 +1,17 @@
+<div class="col-md-8 col-md-offset-2">
+  <h2 class="text-center">项目列表</h2>
+  <table class="table">
+    <tr>
+      <th>项目名称</th>
+      <th>项目描述</th>
+      <th>投票数</th>
+    </tr>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.description %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
